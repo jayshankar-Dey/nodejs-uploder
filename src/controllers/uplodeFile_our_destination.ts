@@ -2,21 +2,26 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 
-    type parameter= {
-       type:"destination"|"memory",
-       }
+const uploadDir = path.join(__dirname, "files");
 
-  const uploadDir = path.join(__dirname, "files/");
+// Ensure directory exists when saving to disk
+const ensureUploadDirExists = () => {
   if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
- }
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
+};
 
-  export const uplodeFile=({type='destination'}:parameter)=>{
-     let storage;
+// Define the parameter type
+interface UploadOptions {
+  type?: "destination" | "memory";
+}
+  export const uplodeFile=({ type = "destination" }: UploadOptions)=>{
+     let storage: multer.StorageEngine;
      
      if(type=='destination'){
        storage=multer.diskStorage({
               destination(req, file, cb) {
+                ensureUploadDirExists(); 
                 cb(null, uploadDir);   
               },
               filename(req, file, cb) {
