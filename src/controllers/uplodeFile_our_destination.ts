@@ -2,7 +2,7 @@
 
     type parameter= {
        type:"destination"|"memory",
-       folder?:String | "uplode/" | "files/" | "images/"
+       folder?:"uplode/" | "files/" | "images/"
        }
   export const uplodeFile=({type='destination',folder='files/'}:parameter)=>{
      let storage;
@@ -10,7 +10,7 @@
      if(type=='destination'){
        storage=multer.diskStorage({
               destination(req, file, cb) {
-                cb(null, folder='files/');   
+                cb(null, folder);   
               },
               filename(req, file, cb) {
                 cb(null, Date.now() + '-' + file.originalname);
@@ -20,7 +20,7 @@
        storage=multer.memoryStorage()
      }
 
-     return multer({storage:storage})
+     return multer({storage:storage}).single('file')
     }
 
  
