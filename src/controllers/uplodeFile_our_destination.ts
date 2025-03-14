@@ -4,10 +4,8 @@ import datauriPerser from 'datauri/parser'
 
 // Define the parameter type
 
-  export const uplode=()=>{
-
-     let storage: multer.StorageEngine;
-     storage=multer.memoryStorage()
+  export const uplodeFile=()=>{
+     const storage=multer.memoryStorage()
      return multer({storage:storage})
      
  }

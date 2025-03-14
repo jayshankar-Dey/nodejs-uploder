@@ -1,5 +1,5 @@
 
-import {uplode,getFile} from './controllers/uplodeFile_our_destination'
+import {uplodeFile,getFile} from './controllers/uplodeFile_our_destination'
 
 
-export {getFile,uplode}
+export {getFile,uplodeFile}
