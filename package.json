@@ -1,6 +1,6 @@
 {
     "name": "nodejs-uploder",
-    "version": "1.0.7",
+    "version": "1.1.10",
     "description": "",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -15,10 +15,13 @@
     "license": "ISC",
     "dependencies": {
         "datauri": "^4.1.0",
+        "express": "^4.21.2",
         "multer": "^1.4.5-lts.1"
     },
     "devDependencies": {
+        "@types/express": "^5.0.0",
         "@types/multer": "^1.4.12",
+        "@types/node": "^22.13.10",
         "typescript": "^5.8.2"
     },
     "repository": {
