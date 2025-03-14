@@ -20,7 +20,7 @@
        storage=multer.memoryStorage()
      }
 
-     return multer({storage:storage}).single('file')
+     return multer({storage:storage})
     }
 
  
