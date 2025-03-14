@@ -6,7 +6,7 @@ import fs from "fs";
        type:"destination"|"memory",
        }
 
-  const uploadDir = path.join(__dirname, "files");
+  const uploadDir = path.join(__dirname, "files/");
   if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
  }
